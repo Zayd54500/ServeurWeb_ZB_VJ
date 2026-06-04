@@ -63,8 +63,6 @@ public class HttpServer {
       sortieErreur.write(enteteErreur.getBytes());
       sortieErreur.write(contenuErreur);
       sortieErreur.flush();
-
-
     }
 
     client.close();
