@@ -3,7 +3,15 @@ public class HttpServer {
     String home = System.getProperty("user.home");
     String cheminConf = home + "/2025-2026/Service Reseaux/FichiersSiteWeb/serveurWeb/serverWeb.conf";
 
-    ConfigReader.testerLecture(cheminConf);
+    SiteConfig config  = ConfigReader.lireConfig(cheminConf);
+
+    if (config == null  ) {
+      System.out.println("Impossible de démarrer : Configuration invalide");
+      return;
+    }
+    System.out.println("Configuration chargée");
+    System.out.println("Le serveur devra écouter sur le port : " + config.getPort());
+    System.out.println("Le site sera lu depuis  : " + config.getDocumentRacine());
   }
 }
 
