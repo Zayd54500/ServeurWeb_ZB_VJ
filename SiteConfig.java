@@ -6,8 +6,9 @@ public class SiteConfig {
   private String cheminLogs;
   private String cheminLogErreur;
 
-  public SiteConfig(int p, String fd, String cl, String cle) {
+  public SiteConfig(int p, String dr, String fd, String cl, String cle) {
     this.port = p;
+    this.documentRacine = dr;
     this.fichierParDefaut = fd;
     this.cheminLogs = cl;
     this.cheminLogErreur = cle;

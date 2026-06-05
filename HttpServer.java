@@ -1,7 +1,14 @@
 public class HttpServer {
   public static void main(String[] args) /* throws Exception */{
     String home = System.getProperty("user.home");
-    String cheminConf = home + "/serveurWeb/serveurWeb.conf";
+    String cheminConf = home + "/2025-2026/Service Reseaux/FichiersSiteWeb/serveurWeb/serverWeb.conf";
+
+    ConfigReader.testerLecture(cheminConf);
+  }
+}
+
+
+    /*
 
     SiteConfig config = ConfigReader.lireConfig(cheminConf);
 
@@ -18,6 +25,8 @@ public class HttpServer {
     System.out.println("Chemin Erreur logs : " + config.getCheminLogErreur());
   }
 }
+*/
+
     /*
     int port = 80;
     if (args.length >= 2) {
