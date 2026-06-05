@@ -1,13 +1,24 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.nio.file.Files;
-
 public class HttpServer {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) /* throws Exception */{
+    String home = System.getProperty("user.home");
+    String cheminConf = home + "/serveurWeb/serveurWeb.conf";
+
+    SiteConfig config = ConfigReader.lireConfig(cheminConf);
+
+    if (config == null ) {
+      System.out.println("Le fichier de configuration n'a pas pu être lu");
+      return;
+    }
+
+    System.out.println("Configuration lue :");
+    System.out.println("Port : " + config.getPort());
+    System.out.println("Document Racine : " + config.getDocumentRacine());
+    System.out.println("Fichier par defaut : " + config.getFichierDefaut());
+    System.out.println("Chemin logs : " + config.getCheminLog());
+    System.out.println("Chemin Erreur logs : " + config.getCheminLogErreur());
+  }
+}
+    /*
     int port = 80;
     if (args.length >= 2) {
       if (args[0].equals("-p")) {
@@ -70,3 +81,4 @@ public class HttpServer {
 
   }
 }
+*/
